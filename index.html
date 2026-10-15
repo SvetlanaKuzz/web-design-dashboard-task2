@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Панель данных Москвы</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+    <header class="topbar">
+        <div class="brand-block">
+            <div class="brand-mark"></div>
+            <div>
+                <div class="brand-title">Москва в данных</div>
+                <div class="brand-sub">Метро · вестибюли · пассажиропоток</div>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <div class="status-pill" id="statusPill" data-state="idle">
+                <span class="status-dot"></span>
+                <span id="statusText">Готово</span>
+            </div>
+            <button class="theme-toggle" id="themeToggle" type="button" title="Сменить тему" aria-label="Сменить тему">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="toolbar">
+        <span class="toolbar-label">Добавить виджет</span>
+        <button class="add-btn" data-add="metro" title="Карта метро">
+            <span class="add-btn-icon">+</span>
+            <span class="add-btn-text">Карта метро</span>
+        </button>
+        <button class="add-btn" data-add="vestibules" title="Вестибюли">
+            <span class="add-btn-icon">+</span>
+            <span class="add-btn-text">Вестибюли</span>
+        </button>
+        <button class="add-btn" data-add="flow" title="Пассажиропоток">
+            <span class="add-btn-icon">+</span>
+            <span class="add-btn-text">Пассажиропоток</span>
+        </button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <footer class="app-footer">
+        <div class="footer-row">
+            <div class="footer-section">
+                <div class="footer-title">Источники данных</div>
+                <ul class="footer-list">
+                    <li>
+                        <span class="footer-badge">API</span>
+                        <a href="https://apidata.mos.ru/" target="_blank" rel="noopener">Портал открытых данных Москвы</a>
+                        <span class="footer-note">— наборы «Вестибюли метрополитена» (№624) и «Пассажиропоток» (№62743)</span>
+                    </li>
+                    <li>
+                        <span class="footer-badge green">Схема</span>
+                        <span>Координаты и линии метрополитена</span>
+                        <span class="footer-note">— справочные данные на 2026 год</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <div class="footer-title">О проекте</div>
+                <p>Интерактивный дашборд с открытыми данными о московском метрополитене. Карта с расчётом маршрута, каталог вестибюлей с фильтрами и сортировкой, график пассажиропотока.</p>
+                <p>Настройки виджетов, размеры, порядок и выбранная тема сохраняются локально в браузере.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Москва в данных<span class="footer-dot"></span>2026</span>
+            <span>Данные: <a href="https://apidata.mos.ru/" target="_blank" rel="noopener">apidata.mos.ru</a><span class="footer-dot"></span>Схема: open data</span>
+        </div>
+    </footer>
+</div>
+
+<div class="toast-area" id="toastArea"></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
